@@ -18,7 +18,7 @@ export async function getLinkedAddress(provider: ethers.providers.Provider, addr
   const addressENS = await provider.lookupAddress(address);
   if (!addressENS) return null;
 
-  const authMatch = addressENS.match(/^(auth[0-9]*)\.(.*)/);
+  const authMatch = addressENS.match(/^(auth[0-9A-Za-z]*)\.(.*)/);
   if (!authMatch) return null;
 
   const linkedENS = authMatch[2];
